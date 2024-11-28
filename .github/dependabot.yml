@@ -1,0 +1,18 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: "monthly"
+    # Disable version updates for npm dependencies
+    # (this option only impacts "version updates" and has no effect on "security updates")
+    open-pull-requests-limit: 0
+    groups:
+      security-safe:
+        applies-to: security-updates
+        patterns: ["*"]
+        update-types: ["patch", "minor"]
+      security-danger:
+        applies-to: security-updates
+        patterns: ["*"]
+        update-types: ["major"]
